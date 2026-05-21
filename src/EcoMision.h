@@ -14,8 +14,8 @@ private:
     
 public:
     EcoMision();
-    void iniciar(){
-    }
+    void iniciar();
+    void mostrarRecorrido();
 };
 
 #endif
