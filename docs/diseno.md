@@ -1,4 +1,4 @@
-classDiagram
+```classDiagram 
 
     class EcoMision {
         - Reserva* reserva
@@ -29,13 +29,12 @@ classDiagram
         + interactuar(Explorador*)
     }
 
-    %% Subclases mínimas
     ElementoInteractivo <|-- AnimalHerido
     ElementoInteractivo <|-- PlantaMedicinal
     ElementoInteractivo <|-- PortalDeRuta
 
-    %% Relaciones básicas
     EcoMision --> Reserva
     EcoMision --> Explorador
     Reserva --> Zona
     Zona --> ElementoInteractivo
+```
