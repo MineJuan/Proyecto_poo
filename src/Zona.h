@@ -9,13 +9,12 @@ using namespace std;
 
 class Zona {
 private:
-    
     string nombre;
     vector <ElementoInteractivo*> elementos;
     
 public:
-    Zona(string nombre)
-    void agragarElemento(ElememtoInteractivo* elemento);
+    Zona(string nombre);
+    void agregarElemento(ElementoInteractivo* elemento);
     }
 };
 
