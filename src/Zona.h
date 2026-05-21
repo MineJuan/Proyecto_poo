@@ -16,7 +16,7 @@ private:
 public:
     Zona(string nombre);
     void agregarElemento(ElementoInteractivo* elemento);
-    void mostrarElelmentos();
+    void mostrarElementos();
     void interactuarConElemento(int indice);
 };
 
