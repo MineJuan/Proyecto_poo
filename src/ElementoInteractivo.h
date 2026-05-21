@@ -9,7 +9,7 @@ using namespace std;
 
 class Explorador;
 
-class ElementosInteractivos {
+class ElementoInteractivos {
     public:
         virtual void interactuar(Explorador* explorador = 0);
     virtual ~ElementosInteractivo (){}
