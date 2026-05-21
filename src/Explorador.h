@@ -15,10 +15,11 @@ private:
     Zona* zonaActual;
     
 public:
-    Explorador(string nombre)
+    Explorador(string nombre);
     void cambiarZona(Zona* nuevaZona);
-    }
+    void modificarEnergia(int valor);   
 };
+
 
 #endif
 
