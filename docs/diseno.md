@@ -1,3 +1,5 @@
+#Inicial
+
 ```mermaid
 classDiagram 
 
@@ -38,4 +40,16 @@ classDiagram
     EcoMision --> Explorador
     Reserva --> Zona
     Zona --> ElementoInteractivo
+```
+
+#Intermedio
+
+```mermaid
+
+```
+
+#Final
+
+```mermaid
+
 ```
