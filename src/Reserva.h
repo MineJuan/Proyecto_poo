@@ -1,7 +1,7 @@
 #ifndef RESERVA_H
 #define RESERVA_H
 
-#include <unoerdered_map>
+#include <unordered_map>
 #include <string>
 #include "Zona.h"
 
@@ -13,9 +13,9 @@ private:
     unordered_map <string, Zona*> zonas;
     
 public:
-    Reserva()
-    void agragarZona(strnig codigo, Zona* zona);
-    }
+    Reserva();
+    void agregarZona(string codigo, Zona* zona);
+    void mostrarZonas();
 };
 
 #endif
