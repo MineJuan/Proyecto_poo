@@ -64,7 +64,7 @@ classDiagram
         - vector<ElementoInteractivo*> elementos
         + agregarElemento(ElementoInteractivo*)
         + mostrarElementos()
-        + interactuarConElemento(int) %% primera idea de sobrecarga
+        + interactuarConElemento(int) 
     }
 
     class Explorador {
