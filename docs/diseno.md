@@ -1,4 +1,5 @@
-```classDiagram 
+```mermaid
+classDiagram 
 
     class EcoMision {
         - Reserva* reserva
