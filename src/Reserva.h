@@ -9,13 +9,14 @@ using namespace std;
 
 class Reserva {
 private:
-    
+
     unordered_map <string, Zona*> zonas;
-    
+
 public:
     Reserva();
     void agregarZona(string codigo, Zona* zona);
+    Zona* buscarZona(string codigoZona);
     void mostrarZonas();
-};
+    };
 
 #endif
