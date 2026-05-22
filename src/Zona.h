@@ -9,16 +9,19 @@ using namespace std;
 
 class Zona {
 private:
-    
+
     string nombre;
     vector <ElementoInteractivo*> elementos;
-    
+
 public:
     Zona(string nombre);
     void agregarElemento(ElementoInteractivo* elemento);
     void mostrarElementos();
     void interactuarConElemento(int indice);
+    void interactuarConElemento(string nombre); //sobrecarga
+    string getNombre();
 };
 
 
 #endif
+
