@@ -94,5 +94,68 @@ classDiagram
 #Final
 
 ```mermaid
+classDiagram
 
+    class EcoMision {
+        - Reserva* reserva
+        - Explorador* explorador
+        + iniciar()
+        + mostrarRecorrido()
+        + ejecutarInteracciones()
+    }
+
+    class Reserva {
+        - unordered_map<string, Zona*> zonas
+        + agregarZona(string, Zona*)
+        + buscarZona(string)
+        + mostrarZonas()
+    }
+
+    class Zona {
+        - string nombre
+        - vector<ElementoInteractivo*> elementos
+        + agregarElemento(ElementoInteractivo*)
+        + mostrarElementos()
+        + interactuarConElemento(int)
+        + interactuarConElemento(string) %% sobrecarga
+        + getNombre()
+    }
+
+    class Explorador {
+        - string nombre
+        - int energia
+        - int puntajeAmbiental
+        - Zona* zonaActual
+        + cambiarZona(Zona*)
+        + modificarEnergia(int)
+        + aumentarPuntaje(int)
+        + getEnergia()
+        + getPuntajeAmbiental()
+        + getZonaActual()
+    }
+
+    class ElementoInteractivo {
+        <<abstract>>
+        + interactuar(Explorador*)
+    }
+
+    class AnimalHerido {
+        + interactuar(Explorador*) override
+    }
+
+    class PlantaMedicinal {
+        + interactuar(Explorador*) override
+    }
+
+    class PortalDeRuta {
+        + interactuar(Explorador*) override
+    }
+
+    EcoMision --> Reserva
+    EcoMision --> Explorador
+    Reserva --> Zona
+    Zona --> ElementoInteractivo
+    ElementoInteractivo <|-- AnimalHerido
+    ElementoInteractivo <|-- PlantaMedicinal
+    ElementoInteractivo <|-- PortalDeRuta
 ```
