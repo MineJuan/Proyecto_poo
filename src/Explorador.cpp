@@ -10,7 +10,25 @@ Explorador::Explorador (string nombre){
     zonaActual = nullptr;
 };
 
+
 void Explorador::cambiarZona(Zona* nuevaZona){
     zonaActual = nuevaZona;
-};
-
+}
+string Explorador::getNombre(){
+    return nombre;
+}
+int Explorador::getEnergia(){
+    return energia;
+}
+int Explorador::getPuntajeAmbiental(){
+    return puntajeAmbiental;
+}
+Zona* Explorador::getZonaActual(){
+    return zonaActual;
+}
+void Explorador::modificarEnergia(int valor){
+    energia+=valor;
+}
+void Explorador::aumentarPuntaje(int puntos){
+    puntajeAmbiental+=puntos;
+}
