@@ -1,15 +1,17 @@
-#ifndef ANIMALHERIDO_H
-#define ANIMALHERIDO_H
-
+#include "AnimalHerido.h"
 #include "ElementoInteractivo.h"
+#include "Explorador.h"
+
+#include <iostream>
 
 using namespace std;
 
-class AnimalHerido : public ElementoInteractivo {
-    
-public:
-    void interactuar(Explorador* explorador) override;
-};
+AnimalHerido::AnimalHerido():ElementoInteractivo("Animal Herido"){
 
-#endif
+}
 
+void AnimalHerido::interactuar(Explorador* explorador){
+    cout << "Ayudaste a un animal herido" << endl;
+    explorador ->aumentarPuntaje(20);
+    explorador ->modificarEnergia(-10);
+}
