@@ -1,16 +1,10 @@
-#include <vector>
-#include <iostream>
-
-using namespace std;
+#include "EcoMision.h"
 
 int main() {
 
-    vector<int> numeros;
+    EcoMision ecoMision;
 
-    numeros.push_back(10);
-
-    cout << numeros[0];
+    ecoMision.iniciar();
 
     return 0;
 }
-
