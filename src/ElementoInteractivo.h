@@ -3,17 +3,20 @@
 
 #include <unordered_map>
 #include <string>
-#include "Zona.h"
 
 using namespace std;
 
 class Explorador;
 
-class ElementoInteractivo {
+class ElementoInteractivo{
+    protected:
+        string nombre;
     public:
-        virtual void interactuar(Explorador* explorador = 0);
-    virtual ~ElementoInteractivo (){}
-
+        ElementoInteractivo(string nombre);
+        virtual void interactuar(Explorador* explorador) = 0;
+        virtual ~ElementoInteractivo (){};
+        string getNombre();
 };
+
 
 #endif
