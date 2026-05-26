@@ -46,25 +46,29 @@ classDiagram
 
 ```mermaid
 classDiagram
+
     class EcoMision {
         - Reserva* reserva
         - Explorador* explorador
-        + iniciar()
-        + mostrarRecorrido()
+        + EcoMision()
+        + void iniciar()
+        + void mostrarRecorrido()
     }
 
     class Reserva {
-        - unordered_map<string, Zona*> zonas
-        + agregarZona(string, Zona*)
-        + mostrarZonas()
+        - unordered_map~string, Zona*~ zonas
+        + Reserva()
+        + void agregarZona(string codigo, Zona* zona)
+        + void mostrarZonas()
     }
 
     class Zona {
         - string nombre
-        - vector<ElementoInteractivo*> elementos
-        + agregarElemento(ElementoInteractivo*)
-        + mostrarElementos()
-        + interactuarConElemento(int) 
+        - vector~ElementoInteractivo*~ elementos
+        + Zona(string nombre)
+        + void agregarElemento(ElementoInteractivo* elemento)
+        + void mostrarElementos()
+        + void interactuarConElemento(int indice, Explorador* explorador)
     }
 
     class Explorador {
@@ -72,23 +76,51 @@ classDiagram
         - int energia
         - int puntajeAmbiental
         - Zona* zonaActual
-        + cambiarZona(Zona*)
-        + modificarEnergia(int)
+        + Explorador(string nombre)
+        + void cambiarZona(Zona* nuevaZona)
+        + void modificarEnergia(int valor)
     }
 
     class ElementoInteractivo {
         <<abstract>>
-        + interactuar(Explorador*)
+        # string nombre
+        + ElementoInteractivo(string nombre)
+        + void interactuar(Explorador* explorador)*
+        + string getNombre()
+        + ~ElementoInteractivo()
     }
+
+    class AnimalHerido {
+        + AnimalHerido()
+        + void interactuar(Explorador* explorador)
+    }
+
+    class PlantaMedicinal {
+        + PlantaMedicinal()
+        + void interactuar(Explorador* explorador)
+    }
+
+    class PortalRuta {
+        - Zona* destino
+        + PortalRuta(Zona* destino)
+        + void interactuar(Explorador* explorador)
+    }
+
+    EcoMision *-- Reserva : coordina
+    EcoMision *-- Explorador : crea y controla
+
+    Reserva o-- Zona : registra zonas
+    Zona o-- ElementoInteractivo : contiene
+
+    Explorador --> Zona : zonaActual
+    PortalRuta --> Zona : destino
 
     ElementoInteractivo <|-- AnimalHerido
     ElementoInteractivo <|-- PlantaMedicinal
     ElementoInteractivo <|-- PortalRuta
 
-    EcoMision --> Reserva
-    EcoMision --> Explorador
-    Reserva --> Zona
-    Zona --> ElementoInteractivo
+    ElementoInteractivo ..> Explorador : modifica estado
+    Zona ..> Explorador : permite interactuar
 ```
 
 #Final
