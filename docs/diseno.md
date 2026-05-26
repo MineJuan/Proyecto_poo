@@ -1,4 +1,4 @@
-#Inicial
+# Inicial
 
 ```mermaid
 classDiagram 
@@ -42,7 +42,7 @@ classDiagram
     Zona --> ElementoInteractivo
 ```
 
-#Intermedio
+# Intermedio
 
 ```mermaid
 classDiagram
@@ -123,7 +123,7 @@ classDiagram
     Zona ..> Explorador 
 ```
 
-#Final
+# Final
 
 ```mermaid
 classDiagram
