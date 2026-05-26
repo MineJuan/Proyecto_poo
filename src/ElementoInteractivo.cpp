@@ -10,3 +10,4 @@ string ElementoInteractivo::getNombre() {
     return nombre;
 }
 
+
