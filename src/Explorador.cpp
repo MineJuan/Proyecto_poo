@@ -32,3 +32,5 @@ void Explorador::modificarEnergia(int valor){
 void Explorador::aumentarPuntaje(int puntos){
     puntajeAmbiental+=puntos;
 }
+
+
