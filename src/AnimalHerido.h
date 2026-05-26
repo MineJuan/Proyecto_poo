@@ -1,5 +1,11 @@
-#include "Explorador.h"
+#ifndef ANIMALHERIDO_H
+#define ANIMALHERIDO_H
+#include "ElementoInteractivo.h"
 
-void interactuar(Explorador* explorador) {
-    explorador->aumentarPuntaje(20);
-}
+class AnimalHerido : public ElementoInteractivo{
+    public:
+        AnimalHerido();
+        void interactuar(Explorador* explorador) override;
+};
+
+#endif
