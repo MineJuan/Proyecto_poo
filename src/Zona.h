@@ -6,7 +6,7 @@
 #include "ElementoInteractivo.h"
 
 using namespace std;
-
+class Explorador;
 class Zona {
 private:
 
@@ -17,8 +17,8 @@ public:
     Zona(string nombre);
     void agregarElemento(ElementoInteractivo* elemento);
     void mostrarElementos();
-    void interactuarConElemento(int indice);
-    void interactuarConElemento(string nombre); //sobrecarga
+    void interactuarConElemento(int indice, Explorador* explorador);
+    void interactuarConElemento(string nombre, Explorador* explorador);
     string getNombre();
 };
 
