@@ -213,3 +213,8 @@ classDiagram
     ElementoInteractivo ..> Explorador : modifica estado
     Zona ..> Explorador : ejecuta interaccion
 ```
+
+-----------------    -------------------------  --------------------------     -----------
+
+
+
