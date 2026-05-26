@@ -34,7 +34,7 @@ classDiagram
 
     ElementoInteractivo <|-- AnimalHerido
     ElementoInteractivo <|-- PlantaMedicinal
-    ElementoInteractivo <|-- PortalDeRuta
+    ElementoInteractivo <|-- PortalRuta
 
     EcoMision --> Reserva
     EcoMision --> Explorador
@@ -83,7 +83,7 @@ classDiagram
 
     ElementoInteractivo <|-- AnimalHerido
     ElementoInteractivo <|-- PlantaMedicinal
-    ElementoInteractivo <|-- PortalDeRuta
+    ElementoInteractivo <|-- PortalRuta
 
     EcoMision --> Reserva
     EcoMision --> Explorador
@@ -147,7 +147,7 @@ classDiagram
         + interactuar(Explorador*) override
     }
 
-    class PortalDeRuta {
+    class PortalRuta {
         + interactuar(Explorador*) override
     }
 
@@ -157,5 +157,5 @@ classDiagram
     Zona --> ElementoInteractivo
     ElementoInteractivo <|-- AnimalHerido
     ElementoInteractivo <|-- PlantaMedicinal
-    ElementoInteractivo <|-- PortalDeRuta
+    ElementoInteractivo <|-- PortalRuta
 ```
