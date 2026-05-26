@@ -131,26 +131,29 @@ classDiagram
     class EcoMision {
         - Reserva* reserva
         - Explorador* explorador
-        + iniciar()
-        + mostrarRecorrido()
-        + ejecutarInteracciones()
+        + EcoMision()
+        + void iniciar()
+        + void mostrarRecorrido()
+        + void ejecutarInteracciones()
     }
 
     class Reserva {
-        - unordered_map<string, Zona*> zonas
-        + agregarZona(string, Zona*)
-        + buscarZona(string)
-        + mostrarZonas()
+        - unordered_map~string, Zona*~ zonas
+        + Reserva()
+        + void agregarZona(string codigo, Zona* zona)
+        + Zona* buscarZona(string codigoZona)
+        + void mostrarZonas()
     }
 
     class Zona {
         - string nombre
-        - vector<ElementoInteractivo*> elementos
-        + agregarElemento(ElementoInteractivo*)
-        + mostrarElementos()
-        + interactuarConElemento(int)
-        + interactuarConElemento(string) %% sobrecarga
-        + getNombre()
+        - vector~ElementoInteractivo*~ elementos
+        + Zona(string nombre)
+        + void agregarElemento(ElementoInteractivo* elemento)
+        + void mostrarElementos()
+        + void interactuarConElemento(int indice, Explorador* explorador)
+        + void interactuarConElemento(string nombre, Explorador* explorador)
+        + string getNombre()
     }
 
     class Explorador {
@@ -158,36 +161,55 @@ classDiagram
         - int energia
         - int puntajeAmbiental
         - Zona* zonaActual
-        + cambiarZona(Zona*)
-        + modificarEnergia(int)
-        + aumentarPuntaje(int)
-        + getEnergia()
-        + getPuntajeAmbiental()
-        + getZonaActual()
+        + Explorador(string nombre)
+        + void cambiarZona(Zona* nuevaZona)
+        + void modificarEnergia(int valor)
+        + void aumentarPuntaje(int puntos)
+        + string getNombre()
+        + int getEnergia()
+        + int getPuntajeAmbiental()
+        + Zona* getZonaActual()
     }
 
     class ElementoInteractivo {
         <<abstract>>
-        + interactuar(Explorador*)
+        # string nombre
+        + ElementoInteractivo(string nombre)
+        + void interactuar(Explorador* explorador)*
+        + string getNombre()
+        + ~ElementoInteractivo()
     }
 
     class AnimalHerido {
-        + interactuar(Explorador*) override
+        + AnimalHerido()
+        + void interactuar(Explorador* explorador)
     }
 
     class PlantaMedicinal {
-        + interactuar(Explorador*) override
+        + PlantaMedicinal()
+        + void interactuar(Explorador* explorador)
     }
 
     class PortalRuta {
-        + interactuar(Explorador*) override
+        - Zona* destino
+        + PortalRuta(Zona* destino)
+        + void interactuar(Explorador* explorador)
     }
 
-    EcoMision --> Reserva
-    EcoMision --> Explorador
-    Reserva --> Zona
-    Zona --> ElementoInteractivo
+    EcoMision *-- Reserva : coordina
+    EcoMision *-- Explorador : crea y controla
+    EcoMision ..> Zona : configura recorrido
+
+    Reserva o-- Zona : registra por codigo
+    Zona o-- ElementoInteractivo : contiene
+
+    Explorador --> Zona : zonaActual
+    PortalRuta --> Zona : destino
+
     ElementoInteractivo <|-- AnimalHerido
     ElementoInteractivo <|-- PlantaMedicinal
     ElementoInteractivo <|-- PortalRuta
+
+    ElementoInteractivo ..> Explorador : modifica estado
+    Zona ..> Explorador : ejecuta interaccion
 ```
