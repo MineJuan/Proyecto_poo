@@ -106,17 +106,21 @@ classDiagram
         + void interactuar(Explorador* explorador)
     }
 
+    EcoMision *-- Reserva 
     EcoMision *-- Explorador : crea y controla
 
+    Reserva o-- Zona : registra zonas
     Zona o-- ElementoInteractivo : contiene
+
+    Explorador --> Zona 
     PortalRuta --> Zona : destino
 
     ElementoInteractivo <|-- AnimalHerido
     ElementoInteractivo <|-- PlantaMedicinal
     ElementoInteractivo <|-- PortalRuta
 
-    ElementoInteractivo ..> Explorador : modifica estado
-    Zona ..> Explorador : permite interactuar
+    ElementoInteractivo ..> Explorador 
+    Zona ..> Explorador 
 ```
 
 #Final
