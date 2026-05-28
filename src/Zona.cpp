@@ -1,5 +1,5 @@
 #include "Explorador.h"
-#include "zona.h"
+#include "Zona.h"
 #include <iostream>
 
 
